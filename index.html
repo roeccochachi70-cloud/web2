@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="EcoBrote UNAH — transforma aserrín en vida. Maceteros sostenibles elaborados con residuos.">
+<title>EcoBrote UNAH | Siembra vida, no residuos</title>
+<style>
+:root{
+  --green:#0c4b2f; --green2:#176b3d; --lime:#7eaa36; --cream:#f6f4df;
+  --yellow:#f1c95b; --ink:#18362a; --white:#fff; --shadow:0 18px 45px rgba(10,55,32,.14);
+}
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink);background:#f7faee;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+.nav{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:14px 5vw;background:rgba(247,250,238,.82);backdrop-filter:blur(14px);border-bottom:1px solid rgba(12,75,47,.08)}
+.logo{font-weight:900;letter-spacing:-1px;color:var(--green);font-size:1.25rem}.logo span{color:var(--lime)}
+.navlinks{display:flex;gap:22px;font-weight:700;font-size:.92rem}.navlinks a:hover{color:var(--lime)}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:13px 20px;background:var(--green);color:white;font-weight:800;cursor:pointer;box-shadow:0 10px 25px rgba(12,75,47,.18);transition:.25s}
+.btn:hover{transform:translateY(-3px);background:#0a3b25}.btn.alt{background:white;color:var(--green);border:1px solid #d9e7cc}
+.hero{min-height:100vh;padding:130px 6vw 70px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:50px;background:
+ radial-gradient(circle at 15% 20%,#dff0bf 0 12%,transparent 32%),
+ radial-gradient(circle at 90% 70%,#d5edbf 0 10%,transparent 28%),
+ linear-gradient(135deg,#fbfcec,#e9f5d7)}
+.hero h1{font-size:clamp(3rem,7vw,7rem);line-height:.86;margin:18px 0;color:var(--green);letter-spacing:-.07em}
+.hero h1 span{color:var(--lime)}
+.kicker{display:inline-flex;align-items:center;gap:8px;background:#e5f1d3;color:var(--green);padding:8px 13px;border-radius:999px;font-weight:900}
+.hero p{font-size:1.15rem;line-height:1.7;max-width:620px;color:#3b5648}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.heroimg{position:relative}.heroimg img{width:100%;border-radius:32px;box-shadow:var(--shadow);display:block;transform:rotate(1deg);transition:.4s}.heroimg:hover img{transform:rotate(0) scale(1.015)}
+.float{position:absolute;right:-20px;bottom:25px;background:white;padding:15px 18px;border-radius:20px;box-shadow:var(--shadow);font-weight:800;color:var(--green);animation:float 3s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-9px)}}
+.section{padding:95px 6vw}.section h2{text-align:center;font-size:clamp(2rem,4vw,3.7rem);margin:0 0 12px;color:var(--green);letter-spacing:-.04em}.lead{text-align:center;max-width:700px;margin:0 auto 45px;color:#5a6b61;line-height:1.7}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1050px;margin:30px auto 0}.stat{background:white;border-radius:24px;padding:25px;text-align:center;box-shadow:0 10px 30px rgba(10,55,32,.07);border:1px solid #e7eddc}.stat strong{font-size:2.5rem;color:var(--green);display:block}.stat small{color:#64766a}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1150px;margin:auto}
+.card{background:white;border-radius:28px;overflow:hidden;box-shadow:0 15px 40px rgba(10,55,32,.1);border:1px solid #e4eadc;transition:.3s}.card:hover{transform:translateY(-8px);box-shadow:0 22px 50px rgba(10,55,32,.16)}
+.cardimg{height:280px;overflow:hidden;background:#e7efd8}.cardimg img{width:100%;height:100%;object-fit:cover;transition:.5s}.card:hover .cardimg img{transform:scale(1.06)}
+.cardbody{padding:23px}.tag{display:inline-block;font-size:.75rem;font-weight:900;color:var(--green);background:#e9f4d9;padding:6px 10px;border-radius:999px}.card h3{margin:12px 0 8px;font-size:1.4rem}.card p{color:#617067;line-height:1.6;margin:0 0 18px}
+.gallery{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:16px;max-width:1150px;margin:auto}.gallery button{padding:0;border:0;border-radius:24px;overflow:hidden;cursor:pointer;background:#ddd;min-height:250px}.gallery img{width:100%;height:100%;object-fit:cover;transition:.45s}.gallery button:hover img{transform:scale(1.07)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1100px;margin:auto}.step{padding:25px;background:#eef6e3;border-radius:24px;position:relative}.step b{font-size:2.2rem;color:var(--lime)}.step h3{margin:8px 0}.step p{color:#607066;line-height:1.55}
+.cta{margin:40px auto 0;max-width:1100px;padding:50px;border-radius:35px;background:linear-gradient(120deg,#0b4b2f,#286c39);color:white;display:flex;align-items:center;justify-content:space-between;gap:25px;position:relative;overflow:hidden}.cta:after{content:"🌿";font-size:10rem;position:absolute;right:-20px;bottom:-55px;opacity:.12}.cta h2{color:white;text-align:left;margin:0}.cta p{color:#dcebd9}
+footer{background:#083722;color:#d8ead6;padding:45px 6vw;text-align:center}.footerbrand{font-size:1.6rem;font-weight:900;color:white}.footerbrand span{color:#a6ca4c}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:50;align-items:center;justify-content:center;padding:25px}.modal.open{display:flex}.modal img{max-width:min(100%,1000px);max-height:85vh;border-radius:20px}.close{position:absolute;top:20px;right:25px;color:white;font-size:2rem;cursor:pointer}
+.reveal{opacity:0;transform:translateY(30px);transition:.7s}.reveal.show{opacity:1;transform:none}
+.leaf{position:fixed;z-index:1;pointer-events:none;font-size:22px;animation:fall linear forwards;opacity:.8}@keyframes fall{to{transform:translateY(110vh) rotate(500deg);opacity:0}}
+
+/* ===== Ventana interactiva: procedimiento de elaboración ===== */
+.procedure-window{max-width:1180px;margin:0 auto;background:white;border:1px solid #e1ead8;border-radius:34px;box-shadow:0 20px 55px rgba(10,55,32,.12);overflow:hidden}
+.procedure-head{padding:34px 38px;background:linear-gradient(135deg,#0c4b2f,#2d713e);color:white;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.procedure-head h2{color:white!important;text-align:left!important;margin:0!important}
+.procedure-head p{margin:7px 0 0;color:#dcebd9;line-height:1.5}
+.procedure-badge{font-size:.78rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;background:#dff0bd;color:#174b2e;padding:9px 12px;border-radius:999px;white-space:nowrap}
+.procedure-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.procedure-step{position:relative;padding:20px 18px 25px;border-right:1px solid #e5ecdf}
+.procedure-step:last-child{border-right:0}
+.procedure-photo{height:235px;border-radius:20px;overflow:hidden;background:#e8eee2;cursor:pointer;position:relative}
+.procedure-photo img{width:100%;height:100%;object-fit:cover;transition:.45s}
+.procedure-photo:hover img{transform:scale(1.06)}
+.step-number{position:absolute;z-index:2;left:28px;top:28px;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#f3c95d;color:#174b2e;font-weight:950;box-shadow:0 7px 15px rgba(0,0,0,.14)}
+.procedure-step h3{margin:17px 3px 8px;color:var(--green);font-size:1.15rem}
+.procedure-step p{margin:0 3px;color:#647269;line-height:1.55;font-size:.94rem}
+.view-photo{margin:16px 3px 0;border:0;background:#edf5e1;color:#176b3d;border-radius:999px;padding:9px 13px;font-weight:800;cursor:pointer}
+.procedure-note{padding:22px 38px;background:#f4f8ed;border-top:1px solid #e4ecdf;color:#53665a;text-align:center}
+.procedure-note strong{color:#0c4b2f}
+
+/* ===== Precios y método de pago ===== */
+.price{font-size:1.65rem;font-weight:950;color:#176b3d;margin:10px 0 15px}
+.price small{font-size:.78rem;font-weight:700;color:#718076}
+.buy-row{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.buy-row .btn{padding:10px 15px;font-size:.9rem}
+.cart-fab{position:fixed;right:24px;bottom:24px;z-index:35;width:58px;height:58px;border:0;border-radius:50%;background:#0c4b2f;color:#fff;font-size:1.35rem;cursor:pointer;box-shadow:0 12px 28px rgba(12,75,47,.28);transition:.25s}
+.cart-fab:hover{transform:translateY(-4px) scale(1.04)}
+.cart-count{position:absolute;right:-3px;top:-5px;background:#f1c95b;color:#174b2e;width:22px;height:22px;border-radius:50%;font-size:.72rem;font-weight:950;display:grid;place-items:center}
+.checkout-overlay{display:none;position:fixed;inset:0;background:rgba(5,32,20,.72);z-index:60;padding:20px;overflow:auto}
+.checkout-overlay.open{display:flex;align-items:center;justify-content:center}
+.checkout-box{width:min(620px,100%);background:#fff;border-radius:30px;box-shadow:0 25px 80px rgba(0,0,0,.25);overflow:hidden}
+.checkout-head{background:linear-gradient(135deg,#0c4b2f,#2d713e);color:#fff;padding:25px 28px;display:flex;justify-content:space-between;align-items:center}
+.checkout-head h3{margin:0;font-size:1.45rem}.checkout-close{border:0;background:rgba(255,255,255,.15);color:#fff;width:38px;height:38px;border-radius:50%;font-size:1.4rem;cursor:pointer}
+.checkout-body{padding:26px}.cart-items{display:grid;gap:10px;margin-bottom:20px}.cart-item{display:flex;align-items:center;justify-content:space-between;gap:15px;background:#f1f6e8;border-radius:16px;padding:13px 15px}.cart-item strong{color:#0c4b2f}.qty{display:flex;align-items:center;gap:8px}.qty button{border:0;width:28px;height:28px;border-radius:50%;background:#dcebc9;color:#174b2e;font-weight:900;cursor:pointer}.total{display:flex;justify-content:space-between;font-size:1.25rem;font-weight:950;padding:15px 0;border-top:1px solid #e1e9dc;margin-top:8px}.pay-title{font-weight:900;color:#0c4b2f;margin:18px 0 10px}.pay-options{display:grid;grid-template-columns:1fr 1fr;gap:10px}.pay-option{border:2px solid #e0e9d8;border-radius:16px;padding:14px;cursor:pointer;background:#fff}.pay-option.selected{border-color:#63a83c;background:#eef7e4}.pay-option b{display:block;color:#176b3d}.pay-note{margin-top:15px;background:#fff8dc;border-radius:14px;padding:13px;color:#6b5a25;font-size:.9rem;line-height:1.5}.checkout-action{width:100%;margin-top:18px;justify-content:center}.empty-cart{text-align:center;padding:22px;color:#68776e}
+.order-form{display:grid;gap:10px;margin-top:15px}.order-form input,.order-form textarea{width:100%;padding:12px 14px;border:1px solid #dce6d7;border-radius:12px;font:inherit;outline:none}.order-form input:focus,.order-form textarea:focus{border-color:#6ca842;box-shadow:0 0 0 3px #e9f4df}
+@media(max-width:620px){.pay-options{grid-template-columns:1fr}.cart-fab{right:16px;bottom:16px}}
+
+@media(max-width:900px){.procedure-grid{grid-template-columns:1fr 1fr}.procedure-step:nth-child(2){border-right:0}.procedure-step:nth-child(-n+2){border-bottom:1px solid #e5ecdf}}
+@media(max-width:620px){.procedure-head{display:block;padding:28px 24px}.procedure-badge{display:inline-block;margin-top:16px}.procedure-grid{grid-template-columns:1fr}.procedure-step{border-right:0!important;border-bottom:1px solid #e5ecdf!important}.procedure-step:last-child{border-bottom:0!important}.procedure-photo{height:270px}.procedure-note{padding:20px 24px}}
+
+@media(max-width:900px){.navlinks{display:none}.hero{grid-template-columns:1fr;padding-top:110px}.products{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}.gallery{grid-template-columns:1fr 1fr}.gallery button:first-child{grid-column:1/-1}}
+@media(max-width:620px){.hero h1{font-size:4rem}.products,.stats,.steps,.gallery{grid-template-columns:1fr}.cta{padding:30px;display:block}.hero{padding-left:5vw;padding-right:5vw}.section{padding:70px 5vw}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a class="logo" href="#inicio">ECO<span>BROTE</span> UNAH</a>
+  <div class="navlinks"><a href="#proyecto">Proyecto</a><a href="#muestras">Muestras</a><a href="#procedimiento">Procedimiento</a><a href="#proceso">Proceso</a><a href="#visitas">Visitas</a></div>
+  <a class="btn" href="https://wa.me/51963460533?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20EcoBrote%20UNAH" target="_blank">🌱 Pedir información</a>
+</nav>
+
+<header class="hero" id="inicio">
+  <div class="reveal">
+    <span class="kicker">♻️ Economía circular universitaria</span>
+    <h1>SIEMBRA <span>VIDA</span><br>NO RESIDUOS</h1>
+    <p>Convertimos aserrín en maceteros biodegradables y útiles. Una idea sencilla para demostrar que un residuo también puede convertirse en una nueva oportunidad.</p>
+    <div class="actions">
+      <a class="btn" href="#muestras">🌿 Explorar muestras</a>
+      <a class="btn alt" href="#proyecto">Conocer EcoBrote</a>
+    </div>
+  </div>
+  <div class="heroimg reveal">
+    <img src="ecobrote-poster.png" alt="Poster del proyecto EcoBrote UNAH">
+    <div class="float">🌱 Pequeñas acciones, grandes cambios</div>
+  </div>
+</header>
+
+<section class="section" id="proyecto">
+  <h2 class="reveal">¿Qué es EcoBrote?</h2>
+  <p class="lead reveal">Es una propuesta universitaria que busca aprovechar el aserrín como materia prima para crear maceteros y mostrar, de manera práctica, el valor de reutilizar residuos.</p>
+  <div class="stats reveal" id="visitas">
+    <div class="stat"><strong id="visitCount">0</strong><small>visitas registradas en este navegador</small></div>
+    <div class="stat"><strong>♻️</strong><small>residuo convertido en recurso</small></div>
+    <div class="stat"><strong>🌱</strong><small>una experiencia para sembrar vida</small></div>
+  </div>
+</section>
+
+<section class="section" id="muestras" style="background:#eef5e5">
+  <h2 class="reveal">Nuestras muestras</h2>
+  <p class="lead reveal">Haz clic en cada muestra para verla en grande. Las imágenes están basadas en el material visual del proyecto.</p>
+  <div class="products">
+    <article class="card reveal"><div class="cardimg"><img src="ecobrote-principal.png" alt="Macetero EcoBrote grande"></div><div class="cardbody"><span class="tag">DESTACADO</span><h3>EcoBrote Clásico</h3><p>Macetero de aserrín con una planta ornamental. Ideal para demostrar el aprovechamiento del residuo.</p><div class="price">S/ 3.00 <small>por unidad</small></div><div class="buy-row"><button class="btn" onclick="openModal('ecobrote-principal.png')">Ver muestra</button><button class="btn alt" onclick="addToCart('EcoBrote Clásico',3)">🛒 Agregar</button></div></div></article>
+    <article class="card reveal"><div class="cardimg"><img src="ecobrote-mini.png" alt="Macetero EcoBrote pequeño"></div><div class="cardbody"><span class="tag">MINI</span><h3>EcoBrote Mini</h3><p>Formato compacto para suculentas y pequeños espacios. Una alternativa sencilla para reutilizar.</p><div class="price">S/ 2.00 <small>por unidad</small></div><div class="buy-row"><button class="btn" onclick="openModal('ecobrote-mini.png')">Ver muestra</button><button class="btn alt" onclick="addToCart('EcoBrote Mini',2)">🛒 Agregar</button></div></div></article>
+    <article class="card reveal"><div class="cardimg"><img src="ecobrote-kit.png" alt="Kit EcoBrote"></div><div class="cardbody"><span class="tag">EXPERIENCIA</span><h3>Kit EcoBrote</h3><p>Presentación educativa que integra maceta, semillas y sustrato para una experiencia de siembra.</p><button class="btn" onclick="openModal('ecobrote-kit.png')">Ver muestra</button></div></article>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="reveal">Galería EcoBrote</h2>
+  <p class="lead reveal">Una galería dinámica para presentar el producto sin que la página se sienta estática.</p>
+  <div class="gallery reveal">
+    <button onclick="openModal('ecobrote-poster.png')"><img src="ecobrote-poster.png" alt="Poster completo EcoBrote"></button>
+    <button onclick="openModal('ecobrote-principal.png')"><img src="ecobrote-principal.png" alt="Macetero grande"></button>
+    <button onclick="openModal('ecobrote-mini.png')"><img src="ecobrote-mini.png" alt="Macetero pequeño"></button>
+  </div>
+</section>
+
+<section class="section" id="procedimiento">
+  <div class="procedure-window reveal">
+    <div class="procedure-head">
+      <div>
+        <h2>Procedimiento de elaboración</h2>
+        <p>Conoce paso a paso cómo el aserrín se transforma en una maceta EcoBrote.</p>
+      </div>
+      <span class="procedure-badge">📸 Experiencia real</span>
+    </div>
+
+    <div class="procedure-grid">
+      <article class="procedure-step">
+        <span class="step-number">01</span>
+        <div class="procedure-photo" onclick="openModal('procedimiento-01-preparacion.png')">
+          <img src="procedimiento-01-preparacion.png" alt="Preparación del aserrín">
+        </div>
+        <h3>Preparación del aserrín</h3>
+        <p>Se dispone y acondiciona el aserrín que será utilizado como materia prima.</p>
+        <button class="view-photo" onclick="openModal('procedimiento-01-preparacion.png')">🔍 Ver foto</button>
+      </article>
+
+      <article class="procedure-step">
+        <span class="step-number">02</span>
+        <div class="procedure-photo" onclick="openModal('procedimiento-02-mezcla.png')">
+          <img src="procedimiento-02-mezcla.png" alt="Mezcla del material">
+        </div>
+        <h3>Mezcla y acondicionamiento</h3>
+        <p>El material se mezcla y trabaja hasta conseguir una consistencia adecuada para el moldeado.</p>
+        <button class="view-photo" onclick="openModal('procedimiento-02-mezcla.png')">🔍 Ver foto</button>
+      </article>
+
+      <article class="procedure-step">
+        <span class="step-number">03</span>
+        <div class="procedure-photo" onclick="openModal('procedimiento-03-moldeado.png')">
+          <img src="procedimiento-03-moldeado.png" alt="Moldeado manual de la maceta">
+        </div>
+        <h3>Moldeado de la maceta</h3>
+        <p>La mezcla se coloca y compacta en el molde para darle la forma del macetero.</p>
+        <button class="view-photo" onclick="openModal('procedimiento-03-moldeado.png')">🔍 Ver foto</button>
+      </article>
+
+      <article class="procedure-step">
+        <span class="step-number">04</span>
+        <div class="procedure-photo" onclick="openModal('procedimiento-04-resultado.png')">
+          <img src="procedimiento-04-resultado.png" alt="Maceta de aserrín terminada">
+        </div>
+        <h3>Maceta obtenida</h3>
+        <p>Se obtiene la pieza moldeada, lista para continuar con su acondicionamiento y uso.</p>
+        <button class="view-photo" onclick="openModal('procedimiento-04-resultado.png')">🔍 Ver foto</button>
+      </article>
+    </div>
+
+    <div class="procedure-note">
+      <strong>♻️ Del residuo al producto:</strong> cada etapa muestra cómo el aserrín puede convertirse en una alternativa útil dentro de una propuesta de economía circular.
+    </div>
+  </div>
+</section>
+
+<section class="section" id="proceso" style="background:#f1f6e8">
+  <h2 class="reveal">Del aserrín a la vida</h2>
+  <p class="lead reveal">La propuesta puede explicarse como un pequeño ciclo de economía circular.</p>
+  <div class="steps">
+    <div class="step reveal"><b>01</b><h3>Recolectar</h3><p>Identificamos el aserrín generado como residuo aprovechable.</p></div>
+    <div class="step reveal"><b>02</b><h3>Preparar</h3><p>Se acondiciona el material para darle una nueva función.</p></div>
+    <div class="step reveal"><b>03</b><h3>Moldear</h3><p>El residuo se transforma en un macetero con identidad propia.</p></div>
+    <div class="step reveal"><b>04</b><h3>Sembrar</h3><p>El producto se convierte en soporte para una nueva planta.</p></div>
+  </div>
+  <div class="cta reveal">
+    <div><h2>¿Listo para darle otra oportunidad al aserrín?</h2><p>Conoce EcoBrote UNAH y forma parte de una idea más verde.</p></div>
+    <a class="btn" style="background:#dcefbf;color:#174b2e" href="https://wa.me/51963460533?text=Hola%2C%20quiero%20conocer%20EcoBrote%20UNAH" target="_blank">💬 Contactar</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footerbrand">ECO<span>BROTE</span> UNAH</div>
+  <p>Transformamos aserrín en vida · Proyecto de economía circular universitaria</p>
+  <small>© 2026 EcoBrote UNAH</small>
+</footer>
+
+
+<button class="cart-fab" onclick="openCheckout()" aria-label="Abrir carrito">
+  🛒<span class="cart-count" id="cartCount">0</span>
+</button>
+
+<div class="checkout-overlay" id="checkout">
+  <div class="checkout-box">
+    <div class="checkout-head">
+      <h3>🌱 Tu pedido EcoBrote</h3>
+      <button class="checkout-close" onclick="closeCheckout()">×</button>
+    </div>
+    <div class="checkout-body">
+      <div id="cartItems" class="cart-items"></div>
+      <div class="total"><span>Total</span><span id="cartTotal">S/ 0.00</span></div>
+
+      <div class="pay-title">Método de pago</div>
+      <div class="pay-options">
+        <div class="pay-option selected" id="payYape" onclick="selectPayment('Yape')">
+          <b>📱 Yape</b><span>Pago móvil</span>
+        </div>
+        <div class="pay-option" id="payPlin" onclick="selectPayment('Plin')">
+          <b>💳 Plin</b><span>Pago móvil</span>
+        </div>
+      </div>
+
+      <div class="pay-note" id="paymentNote">
+        <strong>Yape seleccionado.</strong><br>
+        En la versión publicada puedes colocar aquí el número de Yape o un código QR oficial del proyecto. No se ha inventado ningún dato de pago.
+      </div>
+
+      <div class="order-form">
+        <input id="customerName" type="text" placeholder="Nombre del comprador">
+        <input id="customerPhone" type="tel" placeholder="Celular de contacto">
+        <textarea id="customerMessage" rows="2" placeholder="Mensaje o indicación para el pedido"></textarea>
+      </div>
+
+      <button class="btn checkout-action" onclick="sendOrder()">📲 Confirmar pedido por WhatsApp</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal" onclick="closeModal(event)"><span class="close">×</span><img id="modalImg" src="" alt="Muestra EcoBrote"></div>
+
+<script>
+// Contador local: suma una visita por navegador y sesión.
+const KEY='ecobrote_visitas';
+let count=Number(localStorage.getItem(KEY)||0)+1;
+localStorage.setItem(KEY,count);
+document.getElementById('visitCount').textContent=count.toLocaleString('es-PE');
+
+function openModal(src){document.getElementById('modalImg').src=src;document.getElementById('modal').classList.add('open')}
+function closeModal(e){if(e.target.id==='modal'||e.target.classList.contains('close'))document.getElementById('modal').classList.remove('open')}
+
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+// Pequeñas hojas animadas para darle vida a la página.
+setInterval(()=>{
+  const leaf=document.createElement('div'); leaf.className='leaf'; leaf.textContent=Math.random()>.5?'🍃':'🌿';
+  leaf.style.left=(Math.random()*100)+'vw'; leaf.style.top='-30px'; leaf.style.animationDuration=(5+Math.random()*5)+'s';
+  document.body.appendChild(leaf); setTimeout(()=>leaf.remove(),10000);
+},1400);
+
+// ===== Carrito y pedido EcoBrote =====
+let cart = [];
+let paymentMethod = 'Yape';
+
+function addToCart(name, price){
+  const item = cart.find(x => x.name === name);
+  if(item) item.qty++;
+  else cart.push({name, price, qty:1});
+  updateCart();
+  openCheckout();
+}
+
+function updateCart(){
+  const box = document.getElementById('cartItems');
+  const count = cart.reduce((s,x)=>s+x.qty,0);
+  const total = cart.reduce((s,x)=>s+x.price*x.qty,0);
+  document.getElementById('cartCount').textContent = count;
+  document.getElementById('cartTotal').textContent = `S/ ${total.toFixed(2)}`;
+
+  if(!cart.length){
+    box.innerHTML = '<div class="empty-cart">Tu carrito está vacío. 🌱<br>Agrega una maceta para continuar.</div>';
+    return;
+  }
+
+  box.innerHTML = cart.map((item,i)=>`
+    <div class="cart-item">
+      <div><strong>${item.name}</strong><br>S/ ${item.price.toFixed(2)} c/u</div>
+      <div class="qty">
+        <button onclick="changeQty(${i},-1)">−</button>
+        <b>${item.qty}</b>
+        <button onclick="changeQty(${i},1)">+</button>
+      </div>
+    </div>`).join('');
+}
+
+function changeQty(i,delta){
+  cart[i].qty += delta;
+  if(cart[i].qty<=0) cart.splice(i,1);
+  updateCart();
+}
+
+function openCheckout(){
+  document.getElementById('checkout').classList.add('open');
+  updateCart();
+}
+function closeCheckout(){
+  document.getElementById('checkout').classList.remove('open');
+}
+function selectPayment(method){
+  paymentMethod = method;
+  document.getElementById('payYape').classList.toggle('selected',method==='Yape');
+  document.getElementById('payPlin').classList.toggle('selected',method==='Plin');
+  document.getElementById('paymentNote').innerHTML =
+    `<strong>${method} seleccionado.</strong><br>En la versión publicada puedes colocar aquí el número de ${method} o un código QR oficial del proyecto. No se ha inventado ningún dato de pago.`;
+}
+function sendOrder(){
+  if(!cart.length){ alert('Agrega al menos una maceta al pedido.'); return; }
+  const name=document.getElementById('customerName').value.trim() || 'Cliente';
+  const phone=document.getElementById('customerPhone').value.trim() || 'No indicado';
+  const msg=document.getElementById('customerMessage').value.trim() || 'Sin indicaciones';
+  const lines=cart.map(x=>`• ${x.name} x${x.qty} = S/ ${(x.price*x.qty).toFixed(2)}`).join('%0A');
+  const total=cart.reduce((s,x)=>s+x.price*x.qty,0).toFixed(2);
+  const text=`Hola, quiero realizar un pedido de EcoBrote UNAH.%0A%0A${lines}%0A%0ATotal: S/ ${total}%0AMétodo de pago elegido: ${paymentMethod}%0ANombre: ${encodeURIComponent(name)}%0ACelular: ${encodeURIComponent(phone)}%0AMensaje: ${encodeURIComponent(msg)}`;
+  window.open(`https://wa.me/51963460533?text=${text}`,'_blank');
+}
+updateCart();
+
+</script>
+</body>
+</html>
